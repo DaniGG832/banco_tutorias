@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('movimientos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('cuenta_id')->constrained('cuentas');
+            $table->timestamp('fecha');
+            $table->string('concepto');
+            $table->decimal('importe',10,2);
             $table->timestamps();
         });
     }
