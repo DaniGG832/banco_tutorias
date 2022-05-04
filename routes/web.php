@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\CuentaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +24,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+Route::resource('clientes',ClienteController::class);
+
+Route::get('/cuentas/create',[CuentaController::class,'create']);
