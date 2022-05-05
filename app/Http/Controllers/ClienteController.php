@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreClienteRequest;
 use App\Http\Requests\UpdateClienteRequest;
 use App\Models\Cliente;
+use App\Models\Cuenta;
 
 class ClienteController extends Controller
 {
@@ -16,8 +17,14 @@ class ClienteController extends Controller
     public function index()
     {
         
+        $clientes = Cliente::all();
+        $cuentas = Cuenta::all();
 
-        return 'index';
+        //dd($cuentas[0]->clientes);
+
+        //dd($clientes[0]->cuentas[0]->numero);
+
+        return view('clientes.index',['clientes'=>$clientes]);
     }
 
     /**
@@ -49,7 +56,7 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        //
+        return view('clientes.show',['cliente'=>$cliente]);
     }
 
     /**

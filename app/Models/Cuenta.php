@@ -13,7 +13,7 @@ class Cuenta extends Model
 
     public function clientes(){
 
-        return $this->belongsToMany(Cliente::class);
+        return $this->belongsToMany(Cliente::class,'titulares');
     }
 
     public function movimientos(){
@@ -21,3 +21,4 @@ class Cuenta extends Model
         return $this->hasMany(Movimiento::class);
     }
 }
+
