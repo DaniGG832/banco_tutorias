@@ -6,6 +6,8 @@ use App\Http\Requests\StoreClienteRequest;
 use App\Http\Requests\UpdateClienteRequest;
 use App\Models\Cliente;
 use App\Models\Cuenta;
+use Illuminate\Auth\Events\Validated;
+use Illuminate\Support\Facades\Redirect;
 
 class ClienteController extends Controller
 {
@@ -67,7 +69,7 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
-        //
+        return view('clientes.edit',['cliente'=>$cliente]);
     }
 
     /**
@@ -79,7 +81,13 @@ class ClienteController extends Controller
      */
     public function update(UpdateClienteRequest $request, Cliente $cliente)
     {
-        //
+
+        $validado = $request->validated();
+        $cliente->fill($validado);
+        //dd($validado);
+        $cliente->save();
+
+        return Redirect()->route('clientes.index')->with('success', 'cliente modificado correctamente');
     }
 
     /**
