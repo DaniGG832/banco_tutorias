@@ -35,8 +35,8 @@
           @endforelse
           </td>
           <td class="p-3 bg-blue-700 ">
-            <a href="{{route('clientes.show',$cliente,false)}}" class="text-gray-100 hover:text-gray-100 mr-2">
-              <i class="material-icons-outlined text-base">mostrar</i>
+            <a href="{{route('clientes.show',$cliente,false)}}" class="text-gray-100 hover:text-green-400 mr-2">
+              <i class="material-icons-outlined text-base">Mostrar</i>
             </a>
 
 
