@@ -1,14 +1,14 @@
 <x-plantilla>
 
 
-{{$cliente}}
-
+{{-- {{$cliente}}
+ --}}
 
 <h1 class="font-bold text-2xl">Show</h1>
 
   <br>
 
-<p>Cliente: {{$cliente->nombre}}</p>
+<p>Cliente: <span class="text-blue-700">{{$cliente->nombre}}</span></p>
   
 
 <br>

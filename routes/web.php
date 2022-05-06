@@ -28,4 +28,6 @@ require __DIR__.'/auth.php';
 
 Route::resource('clientes',ClienteController::class);
 
-Route::get('/cuentas/create',[CuentaController::class,'create']);
+Route::get('/cuentas/create',[CuentaController::class,'create'])->name('cuentas.create');
+
+Route::post('/cuentas/store',[CuentaController::class,'store'])->name('cuentas.store');

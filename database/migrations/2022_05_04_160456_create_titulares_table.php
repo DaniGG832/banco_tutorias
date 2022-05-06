@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('titulares', function (Blueprint $table) {
             $table->foreignId('cuenta_id')->constrained('cuentas');
-            $table->foreignId('cliente_id')->constrained('cuentas');
+            $table->foreignId('cliente_id')->constrained('clientes');
             $table->primary(['cuenta_id','cliente_id']);
         });
     }

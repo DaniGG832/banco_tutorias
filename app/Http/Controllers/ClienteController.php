@@ -36,7 +36,9 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        $cliente = new Cliente();
+
+        return view('clientes.create',['cliente'=>$cliente]);
     }
 
     /**
@@ -47,7 +49,13 @@ class ClienteController extends Controller
      */
     public function store(StoreClienteRequest $request)
     {
-        //
+        $validado= $request->validated();
+        $cliente = new Cliente($validado);
+
+        $cliente->save();
+
+        return redirect()->route('clientes.index')->with('success', 'cliente creado correctamente');
+
     }
 
     /**
@@ -98,6 +106,10 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        //
+        //$cliente->cuentas->detach();
+        $cliente->delete();
+
+        return Redirect()->route('clientes.index')->with('success', 'cliente borrado correctamente');
+
     }
 }

@@ -1,11 +1,20 @@
 <x-plantilla>
 
-  {{ $clientes }}
+{{--   {{ $clientes }} --}}
 
   <h1 class="font-bold text-2xl">Clientes</h1>
 
   <br>
+  <a href="{{ route('clientes.create', [], false) }}" class="text-blue-400 hover:text-blue-800 mx-2">
+    <i class="material-icons-outlined text-base">Dar alta nuevo cliente</i>
+  </a>
 
+  <br>
+  <a href="{{ route('cuentas.create', [], false) }}" class="text-blue-400 hover:text-blue-800 mx-2">
+    <i class="material-icons-outlined text-base">Crear cuenta nueva</i>
+  </a>
+
+  <br>
   <table class="table text-gray-400 border-separate space-y-6 text-sm">
     <thead class="bg-blue-500 text-white">
       <tr>
@@ -44,9 +53,14 @@
             <a href="{{ route('clientes.edit', $cliente, false) }}" class="text-green-800 hover:text-gray-800 mx-2">
               <i class="material-icons-outlined text-base">edit</i>
             </a>
-            <a href="#" class="text-red-400 hover:text-red-800 mx-2">
-              <i class="material-icons-outlined text-base">Borrar</i>
-            </a>
+            <form action="{{route('clientes.destroy',$cliente,true)}}" method="post">
+  
+              @csrf
+              @method('delete')
+
+              <button  class="text-red-400 hover:text-red-800 mx-2 material-icons-outlined text-base" type="submit">Borrar</button>
+              </form>
+          
           </td>
 
           

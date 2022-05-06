@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCuentaRequest;
 use App\Http\Requests\UpdateCuentaRequest;
+use App\Models\Cliente;
 use App\Models\Cuenta;
+
 
 class CuentaController extends Controller
 {
@@ -25,7 +27,7 @@ class CuentaController extends Controller
      */
     public function create()
     {
-        //
+        return view('cuentas.create',['clientes'=>Cliente::all()]);
     }
 
     /**
@@ -36,7 +38,12 @@ class CuentaController extends Controller
      */
     public function store(StoreCuentaRequest $request)
     {
-        //
+        $validado = $request->validated();
+        $cuenta = new Cuenta($validado);
+
+        $cuenta->save();
+
+        return redirect()->route('clientes.index')->with('success', 'cuenta creada correctamente');
     }
 
     /**
