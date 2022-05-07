@@ -54,7 +54,7 @@ class CuentaController extends Controller
      */
     public function show(Cuenta $cuenta)
     {
-        //
+        return view('movimientos.show',compact('cuenta'));
     }
 
     /**

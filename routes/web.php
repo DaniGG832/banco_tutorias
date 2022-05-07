@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\CuentaController;
+use App\Http\Controllers\MovimientoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +32,7 @@ Route::resource('clientes',ClienteController::class);
 Route::get('/cuentas/create',[CuentaController::class,'create'])->name('cuentas.create');
 
 Route::post('/cuentas/store',[CuentaController::class,'store'])->name('cuentas.store');
+
+Route::resource('movimientos',MovimientoController::class);
+Route::resource('cuentas',CuentaController::class);
+

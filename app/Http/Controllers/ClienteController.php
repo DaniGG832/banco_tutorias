@@ -6,6 +6,7 @@ use App\Http\Requests\StoreClienteRequest;
 use App\Http\Requests\UpdateClienteRequest;
 use App\Models\Cliente;
 use App\Models\Cuenta;
+
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Redirect;
 
@@ -77,7 +78,9 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
-        return view('clientes.edit',['cliente'=>$cliente]);
+        
+        return view('clientes.edit',['cliente'=>$cliente,
+                                        'cuentas'=>Cuenta::all()]);
     }
 
     /**
@@ -89,11 +92,14 @@ class ClienteController extends Controller
      */
     public function update(UpdateClienteRequest $request, Cliente $cliente)
     {
+        //dd($request->nCuenta);
 
         $validado = $request->validated();
         $cliente->fill($validado);
-        //dd($validado);
+
         $cliente->save();
+        
+        $cliente->cuentas()->attach($request->nCuenta);
 
         return Redirect()->route('clientes.index')->with('success', 'cliente modificado correctamente');
     }
@@ -106,7 +112,7 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        //$cliente->cuentas->detach();
+        $cliente->cuentas()->detach();
         $cliente->delete();
 
         return Redirect()->route('clientes.index')->with('success', 'cliente borrado correctamente');

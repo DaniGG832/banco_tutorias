@@ -27,7 +27,16 @@
   </p>
 @enderror
   <br>
-
+  <p class="">Asignar cuenta</p>
+ <br>
+  <select name="nCuenta" id="" value="pepe">
+    @foreach ($cuentas as $cuenta)
+        
+    <option value="{{$cuenta->id}}">{{$cuenta->numero}}</option>
+    @endforeach
+  </select>
+<br>
+<br>
   <button type="submit">Enviar</button>
 
 </form>

@@ -6,6 +6,7 @@ use App\Http\Requests\StoreMovimientoRequest;
 use App\Http\Requests\UpdateMovimientoRequest;
 use App\Models\Movimiento;
 
+
 class MovimientoController extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class MovimientoController extends Controller
      */
     public function index()
     {
-        //
+        return 'index';
     }
 
     /**
@@ -47,7 +48,7 @@ class MovimientoController extends Controller
      */
     public function show(Movimiento $movimiento)
     {
-        //
+        
     }
 
     /**
