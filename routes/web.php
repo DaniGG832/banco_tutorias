@@ -37,5 +37,6 @@ Route::get('/cuentas/create',[CuentaController::class,'create'])->name('cuentas.
 Route::post('/cuentas/store',[CuentaController::class,'store'])->name('cuentas.store');
 
 Route::resource('movimientos',MovimientoController::class);
+
 Route::resource('cuentas',CuentaController::class);
 

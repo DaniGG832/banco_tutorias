@@ -9,7 +9,7 @@
   <br>
   <p >
     <a  class="hover:underline text-blue-400 hover:text-blue-800" 
-    href="{{route('clientes.index')}}">Atras</a>
+    href="{{route('clientes.index')}}">Index</a>
 
   </p>
   <br>

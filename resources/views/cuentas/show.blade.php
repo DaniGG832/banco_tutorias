@@ -40,7 +40,30 @@
     @endforeach
   
   </ul>
-  
+  <br>
+
+  <h2>Añadir movimiento</h2>
+
+  <form action="{{route('movimientos.store',[],false)}}" method="post">
+
+@method('post')
+    @csrf
+    <input type="hidden" name="cuenta_id" value="{{$cuenta->id}}">
+
+      <label for="concepto">Concepto</label>
+
+      <input type="text" name="concepto">
+<br>
+
+      <label for="importe">Importe</label>
+
+      <input type="number" step="0.01" name="importe">
+
+<br>
+
+    <button type="submit">Enviar</button>
+
+  </form>
   
   
   </x-plantilla>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMovimientoRequest;
 use App\Http\Requests\UpdateMovimientoRequest;
+use App\Models\Cuenta;
 use App\Models\Movimiento;
 
 
@@ -37,7 +38,7 @@ class MovimientoController extends Controller
      */
     public function store(StoreMovimientoRequest $request)
     {
-        //
+        return $request;
     }
 
     /**
