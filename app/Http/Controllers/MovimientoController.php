@@ -6,7 +6,8 @@ use App\Http\Requests\StoreMovimientoRequest;
 use App\Http\Requests\UpdateMovimientoRequest;
 use App\Models\Cuenta;
 use App\Models\Movimiento;
-
+use Carbon\Carbon;
+use Database\Seeders\MovimientoSeeder;
 
 class MovimientoController extends Controller
 {
@@ -38,6 +39,15 @@ class MovimientoController extends Controller
      */
     public function store(StoreMovimientoRequest $request)
     {
+        $validado= $request->validated();
+
+        $movimiento = new Movimiento($validado);
+        
+        $movimiento->fecha =Carbon::now();
+
+        $movimiento->save();
+
+        dd($movimiento);
         return $request;
     }
 

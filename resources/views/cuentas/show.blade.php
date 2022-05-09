@@ -52,12 +52,24 @@
 
       <label for="concepto">Concepto</label>
 
-      <input type="text" name="concepto">
+      <input type="text" name="concepto" required value="{{old('concepto')}}">
+
+      @error('concepto')
+    <p class="text-red-500 text-sm mt-1">
+        {{ $message }}
+    </p>
+  @enderror
 <br>
 
       <label for="importe">Importe</label>
 
-      <input type="number" step="0.01" name="importe">
+      <input type="number" step="0.01" name="importe" required value="{{old('importe')}}"">
+
+      @error('importe')
+    <p class="text-red-500 text-sm mt-1">
+        {{ $message }}
+    </p>
+  @enderror
 
 <br>
 
