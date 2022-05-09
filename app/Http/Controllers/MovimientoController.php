@@ -47,8 +47,11 @@ class MovimientoController extends Controller
 
         $movimiento->save();
 
-        dd($movimiento);
-        return $request;
+        $cuenta = $request->cuenta_id;
+
+        //dd($cuenta);
+        //dd($movimiento);
+        return redirect()->route('cuentas.show',$cuenta)->with('success', 'movimineto añadido correctamente');;
     }
 
     /**
