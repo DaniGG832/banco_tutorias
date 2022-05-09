@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('cuentas', function (Blueprint $table) {
             $table->id();
             $table->decimal('numero',20,0)->unique();
-            $table->decimal('saldo',10,2)->default(0);
+            //$table->decimal('saldo',10,2)->default(0);
             $table->timestamps();
         });
     }

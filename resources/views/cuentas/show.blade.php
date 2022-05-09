@@ -23,7 +23,7 @@
     
   
   <br>
-  <p>Saldo: <span class="text-blue-700">{{$cuenta->saldo}} €</span></p>
+  <p>Saldo: <span class="text-blue-700"> {{$saldo}}€</span></p>
   
   
   <br>

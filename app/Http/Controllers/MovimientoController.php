@@ -39,6 +39,8 @@ class MovimientoController extends Controller
      */
     public function store(StoreMovimientoRequest $request)
     {
+
+        
         $validado= $request->validated();
 
         $movimiento = new Movimiento($validado);

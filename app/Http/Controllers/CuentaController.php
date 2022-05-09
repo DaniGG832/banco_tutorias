@@ -6,7 +6,7 @@ use App\Http\Requests\StoreCuentaRequest;
 use App\Http\Requests\UpdateCuentaRequest;
 use App\Models\Cliente;
 use App\Models\Cuenta;
-
+use App\Models\Movimiento;
 
 class CuentaController extends Controller
 {
@@ -54,8 +54,14 @@ class CuentaController extends Controller
      */
     public function show(Cuenta $cuenta)
     {
+
+
+
+        $saldo= $cuenta->movimientos->sum('importe');
+        //dd($saldo);
             //dd($cuenta->movimientos);
-        return view('cuentas.show',['cuenta'=>$cuenta]);
+        return view('cuentas.show',['cuenta'=>$cuenta,
+                                    'saldo'=>$saldo]);
     }
 
     /**
