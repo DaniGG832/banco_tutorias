@@ -13,7 +13,7 @@
     @method('post')
   
     <label for="numero">Numero de cuenta</label>
-    <input type="number" name="numero" id="numero" value="{{old('numero')}}">
+    <input type="number" name="numero" id="numero"autofocus value="{{old('numero')}}">
     @error('numero')
     <p class="text-red-500 text-sm mt-1">
         {{ $message }}
