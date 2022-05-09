@@ -2,7 +2,7 @@
 {{$cliente}}
 
 <h1>
-  edit
+  clientes edit
 </h1>
 
 

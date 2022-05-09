@@ -30,16 +30,30 @@
 
   <p>Movimientos</p>
 
-  
-  <ul>
-    @foreach ($cuenta->movimientos as $movimiento)
-  
+  <br>
+  <table class="table text-gray-400 border-separate space-y-6 text-sm">
+    <thead class="bg-blue-500 text-white">
+      <tr>
+        <th class="p-3">Concepto</th>
+        <th class="p-3 text-left">fecha</th>
+        <th class="p-3 text-left">Importe</th>
+      </tr>
+    </thead>
+    <tbody>
 
-    <li class="text-blue-400 hover:text-green-500 ml-2">{{$movimiento->concepto.'->('.$movimiento->importe}}) € ->{{$movimiento->fecha}} </li>
+      @foreach ($cuenta->movimientos as $movimiento)
+        <tr class="bg-blue-100 lg:text-black">
+          <td class="p-3 font-medium capitalize">{{ $movimiento->concepto}}</td>
+          <td class="p-3">{{ $movimiento->fecha }}</td>
+          <td class="p-3 uppercase">{{ $movimiento->importe }} €</td>
+          
+          
+        </tr>
+        @endforeach
+        </tbody>
+      </table>
+
   
-    @endforeach
-  
-  </ul>
   <br>
 
   <h2>Añadir movimiento</h2>
