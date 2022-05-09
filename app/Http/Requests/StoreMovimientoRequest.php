@@ -24,9 +24,9 @@ class StoreMovimientoRequest extends FormRequest
     public function rules()
     {
         return [
-            "cuenta_id"=>'required| integer',
+            "cuenta_id"=>'required|integer',
             "concepto"=>'required|string|min:3|max:255',
-            "importe"=>'required| numeric|regex:/^[\d]{0,10}(\.[\d]{1,2})?$/'
+            "importe"=>'required| numeric'//|regex:/^[\d]{0,10}(\.[\d]{1,2})?$/
         ];
     }
 }
