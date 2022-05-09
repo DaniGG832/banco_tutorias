@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\CuentaController;
 use App\Http\Controllers\MovimientoController;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    return Redirect('/clientes');
+    //return view('welcome');
 });
 
 Route::get('/dashboard', function () {

@@ -26,10 +26,23 @@
       {{ $message }}
   </p>
 @enderror
+<br>
   <br>
   <p class="">Asignar cuenta</p>
  <br>
-  <select name="nCuenta" id="" value="pepe">
+  <select name="nCuenta" id="" value="">
+    <option value=""></option>
+    @foreach ($cuentas as $cuenta)
+        
+    <option value="{{$cuenta->id}}">{{$cuenta->numero}}</option>
+    @endforeach
+  </select>
+<br>
+<br>
+  <p class="">Dar baja como titular</p>
+ <br>
+  <select name="bajaTitular" id="" value="">
+    <option value=""></option>
     @foreach ($cuentas as $cuenta)
         
     <option value="{{$cuenta->id}}">{{$cuenta->numero}}</option>

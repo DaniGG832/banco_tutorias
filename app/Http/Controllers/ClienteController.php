@@ -99,7 +99,15 @@ class ClienteController extends Controller
 
         $cliente->save();
         
-        $cliente->cuentas()->attach($request->nCuenta);
+        $cliente->cuentas()->syncWithoutDetaching($request->nCuenta);
+
+
+        //dd($request->bajaTitular);
+        if($request->bajaTitular){
+
+            $cliente->cuentas()->detach($request->bajaTitular);
+        }
+
 
         return Redirect()->route('clientes.index')->with('success', 'cliente modificado correctamente');
     }
